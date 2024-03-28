@@ -4,7 +4,8 @@ export interface loginFormData {
 }
 
 interface DateType {
-  token: string;
+  token?: string;
+  message?: string;
 }
 export interface loginResponseData {
   code: number;

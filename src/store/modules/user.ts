@@ -1,21 +1,23 @@
 import { defineStore } from "pinia";
 import { reqLogin } from "@/api/user";
-import type { loginFrom } from "@/api/user";
-let useUserStore = defineStore("user", {
-  state: () => ({
+import type { loginFrom ,loginResponseData} from "@/api/user/type";
+import type { UserState } from "./types/type";
+import { SET_TOKEN,GET_TOKEN } from "@/utils/token";
+let useUserStore = defineStore("User", {
+  state: ():UserState => ({
     return: {
-      token: localStorage.getItem("token"),
+      token: GET_TOKEN(),
     },
   }),
   //异步
   actions: {
     async userLogin(data: loginFrom) {
-      let request: any = await reqLogin(data);
+      let request: loginResponseData = await reqLogin(data);
       if (request.code === 200) {
         //将token信息存储到pinia中
-        this.token = request.data.token;
+        this.token = (request.data.token as string);
         // 将token本地备份一份目的持久化
-        localStorage.setItem("token", request.data.token);
+       SET_TOKEN(request.data.token as string)
         return "ok";
       } else {
         return Promise.reject(new Error(request.data.message));
