@@ -4,12 +4,12 @@ import type { loginFormData, loginResponseData } from "@/api/user/type";
 import type { UserState } from "./types/type";
 import { SET_TOKEN, GET_TOKEN } from "@/utils/token";
 import { constantRoute } from "@/router/routers";
-const useUserStore = defineStore('User',  {
+const useUserStore = defineStore("User", {
   state: (): UserState => {
     return {
       token: GET_TOKEN(), //用户唯一标识token
       menuRoutes: constantRoute, //仓库存储生成菜单需要数组(路由)
-    }
+    };
   },
   //异步
   actions: {

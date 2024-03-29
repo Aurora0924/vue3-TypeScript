@@ -1,13 +1,13 @@
 // @see <https://eslint.bootcss.com/docs/rules/>
 
 module.exports = {
-  root:true,
+  root: true,
   env: {
     browser: true,
     es2021: true,
     node: true,
     jest: true,
-    'vue/setup-compiler-macros': true
+    "vue/setup-compiler-macros": true,
   },
   /* 指定如何解析语法 */
   parser: "vue-eslint-parser",
@@ -26,8 +26,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:vue/vue3-essential",
     "plugin:@typescript-eslint/recommended",
-    '@vue/standard',
-    '@vue/typescript/recommended'
+    "@vue/standard",
+    "@vue/typescript/recommended",
   ],
   plugins: ["vue", "@typescript-eslint"],
   /*
@@ -57,10 +57,10 @@ module.exports = {
     "vue/script-setup-uses-vars": "error", // 防止<script setup>使用的变量<template>被标记为未使用
     "vue/no-mutating-props": "off", // 不允许组件 prop的改变
     "vue/attribute-hyphenation": "off", // 对模板中的自定义组件强制执行属性命名样式
-    'vue/no-multiple-template-root': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    "vue/no-multiple-template-root": "off",
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     // 关闭常用单词
-    'vue/no-unused-vars': 'off'
+    "vue/no-unused-vars": "off",
   },
 };

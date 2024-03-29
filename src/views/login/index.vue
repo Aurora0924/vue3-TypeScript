@@ -3,7 +3,12 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login_form" :model="loginForm" :rules="rules" ref="loginForms">
+        <el-form
+          class="login_form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>Hello</h1>
           <h2>欢迎来到硅谷甄选</h2>
 
@@ -30,7 +35,8 @@
               size="default"
               class="login_btn"
               @click="login"
-              >登录</el-button>
+              >登录</el-button
+            >
           </el-form-item>
         </el-form>
       </el-col>
@@ -52,11 +58,27 @@ let router = useRouter();
 // 实现加载效果
 let loading = ref(false);
 // 获取表单数据进行校验
-let loginForms = ref()
+let loginForms = ref();
 // 收集表单数据
 const rules = reactive({
-  username: [{ required: true, message: "账号名称长度至少5位", min: "5", max: "10", trigger: "change" }],
-  password: [{ required: true, message: "账户密码长度至少6位", min: "6", max:"15", trigger: "change" }],
+  username: [
+    {
+      required: true,
+      message: "账号名称长度至少5位",
+      min: "5",
+      max: "10",
+      trigger: "change",
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: "账户密码长度至少6位",
+      min: "6",
+      max: "15",
+      trigger: "change",
+    },
+  ],
 });
 // 表单实例
 let loginForm = reactive({
@@ -64,7 +86,7 @@ let loginForm = reactive({
   password: "111111",
 });
 // 登录方法
-const login = async() => {
+const login = async () => {
   // 进行表单校验
   await loginForms.value.validate();
   loading.value = true;
@@ -74,7 +96,7 @@ const login = async() => {
       ElNotification({
         type: "success",
         message: "欢迎回来",
-        title:`Hi,${getCurrentTime()}好`
+        title: `Hi,${getCurrentTime()}好`,
       });
     },
     (error) => {
@@ -86,7 +108,6 @@ const login = async() => {
     },
   );
 };
-
 </script>
 
 <style lang="scss" scoped>

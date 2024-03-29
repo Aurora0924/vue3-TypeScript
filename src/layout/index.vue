@@ -15,17 +15,16 @@
     <div class="layout_tabbar">顶部导航栏</div>
     <!-- 右侧内容区 -->
     <div class="layout_main">
-      <p style="height: 10000px;">段落</p>
+      <p style="height: 10000px">段落</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Logo from '../layout/logo/index.vue'; 
-import Menu from '../layout/menu/index.vue';
-import useUserStore from '@/store/modules/user';
+import Logo from "../layout/logo/index.vue";
+import Menu from "../layout/menu/index.vue";
+import useUserStore from "@/store/modules/user";
 let userStore = useUserStore();
-
 </script>
 
 <style lang="scss" scoped>
@@ -44,11 +43,11 @@ let userStore = useUserStore();
     }
   }
   .layout_tabbar {
-    position:fixed;
+    position: fixed;
     width: calc(100% - #{$base-menu-width});
     height: $base-top-nav-height;
     top: 0;
-    left:$base-menu-width;
+    left: $base-menu-width;
     background: cyan;
   }
   .layout_main {
@@ -59,7 +58,7 @@ let userStore = useUserStore();
     left: $base-menu-width;
     top: $base-top-nav-height;
     padding: 20px;
-    overflow:auto;
+    overflow: auto;
   }
 }
 </style>
