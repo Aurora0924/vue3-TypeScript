@@ -3,7 +3,7 @@ import App from "./App.vue";
 import ElementPlus from "element-plus";
 import gloablComponent from "./components/index";
 
-import "./style/reset.scss";
+import "./style/index.scss";
 import "element-plus/dist/index.css";
 import "virtual:svg-icons-register";
 import pinia from "./store";

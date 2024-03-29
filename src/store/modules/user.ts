@@ -1,17 +1,19 @@
 import { defineStore } from "pinia";
 import { reqLogin } from "@/api/user";
-import type { loginFrom, loginResponseData } from "@/api/user/type";
+import type { loginFormData, loginResponseData } from "@/api/user/type";
 import type { UserState } from "./types/type";
 import { SET_TOKEN, GET_TOKEN } from "@/utils/token";
-let useUserStore = defineStore("User", {
-  state: (): UserState => ({
-    return: {
-      token: GET_TOKEN(),
-    },
-  }),
+import { constantRoute } from "@/router/routers";
+const useUserStore = defineStore('User',  {
+  state: (): UserState => {
+    return {
+      token: GET_TOKEN(), //用户唯一标识token
+      menuRoutes: constantRoute, //仓库存储生成菜单需要数组(路由)
+    }
+  },
   //异步
   actions: {
-    async userLogin(data: loginFrom) {
+    async userLogin(data: loginFormData) {
       let request: loginResponseData = await reqLogin(data);
       if (request.code === 200) {
         //将token信息存储到pinia中
