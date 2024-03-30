@@ -5,7 +5,11 @@
       <Logo></Logo>
       <el-scrollbar class="scrollbar">
         <!-- 组件菜单 :router="true"可以进行路由跳转 -->
-        <el-menu background-color="#001529" text-color="white" :default-active="$route.path">
+        <el-menu
+          background-color="#001529"
+          text-color="white"
+          :default-active="$route.path"
+        >
           <!-- 封装动态组件 -->
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
@@ -23,14 +27,14 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import useUserStore from '@/store/modules/user'
-import Logo from './logo/index.vue'
-import Menu from './menu/index.vue'
-import Main from './main/index.vue'
-import Tabbar from './tabbar/index.vue'
-let userStore = useUserStore()
-let $route = useRoute()
+import { useRoute } from "vue-router";
+import useUserStore from "@/store/modules/user";
+import Logo from "./logo/index.vue";
+import Menu from "./menu/index.vue";
+import Main from "./main/index.vue";
+import Tabbar from "./tabbar/index.vue";
+let userStore = useUserStore();
+let $route = useRoute();
 </script>
 
 <style lang="scss" scoped>

@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import setting from '@/setting'
-import Breadcrumb from './breadcrumb/index.vue'
-import Set from './set/index.vue';
+import setting from "@/setting";
+import Breadcrumb from "./breadcrumb/index.vue";
+import Set from "./set/index.vue";
 </script>
 
 <style lang="scss" scoped>
