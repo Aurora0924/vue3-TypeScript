@@ -24,6 +24,7 @@ interface userInfo {
   token: string;
 }
 interface user {
+  checkUser: any;
   checkUse: userInfo;
 }
 export interface userInfoReponseData {

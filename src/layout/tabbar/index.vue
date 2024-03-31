@@ -4,17 +4,20 @@
       <Breadcrumb></Breadcrumb>
     </div>
     <div class="tabbar_right">
-      <Set></Set>
+      <Setting></Setting>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import setting from "@/setting";
-import Breadcrumb from "./breadcrumb/index.vue";
-import Set from "./set/index.vue";
+import Breadcrumb from './breadcrumb/index.vue'
+import Setting from './setting/index.vue'
 </script>
-
+<script lang="ts">
+  export default {
+    name: "Tabbar",
+  }
+</script>
 <style lang="scss" scoped>
 .tabbar {
   width: 100%;

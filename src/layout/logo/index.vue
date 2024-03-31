@@ -6,9 +6,13 @@
 </template>
 
 <script setup lang="ts">
-import setting from "@/setting";
+import setting from '@/setting'
 </script>
-
+<script lang="ts">
+export default {
+  name: 'Logo'
+}
+</script>
 <style lang="scss" scoped>
 .logo {
   width: 100%;
@@ -16,7 +20,7 @@ import setting from "@/setting";
   color: white;
   display: flex;
   align-content: center;
-  padding: 20px;
+  padding: 5px;
   img {
     width: 40px;
     height: 40px;
@@ -25,6 +29,7 @@ import setting from "@/setting";
     font-size: $base-aside-logo-font-size;
     margin-left: 10px;
     margin-top: 6px;
+    white-space: nowrap;
   }
 }
 </style>
