@@ -1,44 +1,55 @@
 <template>
   <div class="layout_container">
     <!-- 左侧菜单栏 -->
-    <div class="layout_slider" :class="{fold:LayoutStore.fold?true:false}">
+    <div
+      class="layout_slider"
+      :class="{ fold: LayoutStore.fold ? true : false }"
+    >
       <Logo></Logo>
       <el-scrollbar class="scrollbar">
         <!-- 组件菜单 :router="true"可以进行路由跳转 -->
-        <el-menu background-color="#001529" text-color="white" :default-active="$route.path" :collapse="LayoutStore.fold?true:false">
+        <el-menu
+          background-color="#001529"
+          text-color="white"
+          :default-active="$route.path"
+          :collapse="LayoutStore.fold ? true : false"
+        >
           <!-- 封装动态组件 -->
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶部导航栏 -->
-    <div class="layout_tabbar" :class="{fold:LayoutStore.fold?true:false}">
+    <div
+      class="layout_tabbar"
+      :class="{ fold: LayoutStore.fold ? true : false }"
+    >
       <Tabbar></Tabbar>
     </div>
     <!-- 右侧内容区 -->
-    <div class="layout_main" :class="{fold:LayoutStore.fold?true:false}">
+    <div class="layout_main" :class="{ fold: LayoutStore.fold ? true : false }">
       <Main></Main>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import useUserStore from '@/store/modules/user'
-import useGlobalComponent from '@/store/modules/layout'
-import Logo from './logo/index.vue'
-import Menu from './menu/index.vue'
-import Main from './main/index.vue'
-import Tabbar from './tabbar/index.vue'
-let userStore = useUserStore()
-let $route = useRoute()
-let LayoutStore = useGlobalComponent()
+import { useRoute } from "vue-router";
+import useUserStore from "@/store/modules/user";
+import useGlobalComponent from "@/store/modules/layout";
+import Logo from "./logo/index.vue";
+import Menu from "./menu/index.vue";
+import Main from "./main/index.vue";
+import Tabbar from "./tabbar/index.vue";
+let userStore = useUserStore();
+let $route = useRoute();
+let LayoutStore = useGlobalComponent();
 </script>
 
 <script lang="ts">
 export default {
-  name: 'Layout'
-}
+  name: "Layout",
+};
 </script>
 <style lang="scss" scoped>
 .layout_container {

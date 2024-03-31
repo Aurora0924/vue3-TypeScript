@@ -10,9 +10,8 @@ let request = axios.create({
 request.interceptors.request.use((config) => {
   const userStore = useUserStore();
   // 获取token
-  if(userStore.token){
+  if (userStore.token) {
     config.headers.token = userStore.token;
-    
   }
   return config;
 });

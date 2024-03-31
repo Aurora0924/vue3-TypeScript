@@ -9,8 +9,8 @@ const useUserStore = defineStore("User", {
     return {
       token: GET_TOKEN(), //用户唯一标识token
       menuRoutes: constantRoute, //仓库存储生成菜单需要数组(路由)
-      username:'',
-      avatar:''
+      username: "",
+      avatar: "",
     };
   },
   //异步
@@ -27,13 +27,12 @@ const useUserStore = defineStore("User", {
         return Promise.reject(new Error(request.data.message));
       }
     },
-    async userInfo(){
+    async userInfo() {
       let request = await reqUserInfo();
       if (request.code === 200) {
         this.username = request.data.checkUser.name;
         this.avatar = request.data.checkUser.avatar;
-      }else {
-
+      } else {
       }
     },
   },

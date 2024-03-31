@@ -10,13 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import Breadcrumb from './breadcrumb/index.vue'
-import Setting from './setting/index.vue'
+import Breadcrumb from "./breadcrumb/index.vue";
+import Setting from "./setting/index.vue";
 </script>
 <script lang="ts">
-  export default {
-    name: "Tabbar",
-  }
+export default {
+  name: "Tabbar",
+};
 </script>
 <style lang="scss" scoped>
 .tabbar {
