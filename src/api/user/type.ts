@@ -24,6 +24,7 @@ interface userInfo {
   token: string;
 }
 interface user {
+  [x: string]: string | undefined;
   checkUser: any;
   checkUse: userInfo;
 }

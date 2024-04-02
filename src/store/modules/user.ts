@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { reqLogin, reqUserInfo } from "@/api/user";
 import type { loginFormData, loginResponseData } from "@/api/user/type";
 import type { UserState } from "./types/type";
-import { SET_TOKEN, GET_TOKEN } from "@/utils/token";
+import { SET_TOKEN, GET_TOKEN ,REMOVE_TOKEN} from "@/utils/token";
 import { constantRoute } from "@/router/routers";
 const useUserStore = defineStore("User", {
   state: (): UserState => {
@@ -29,12 +29,21 @@ const useUserStore = defineStore("User", {
     },
     async userInfo() {
       let request = await reqUserInfo();
-      if (request.code === 200) {
-        this.username = request.data.checkUser.name;
+      if (request.code == 200) {
+        this.username = request.data.checkUser.username;
         this.avatar = request.data.checkUser.avatar;
+        return "ok";
       } else {
+        return Promise.reject("获取用户信息失败");
       }
     },
+    //没有接口不需要用异步
+    logout() {
+      this.token = "";
+      this.username = "";
+      this.avatar = "";
+      REMOVE_TOKEN()
+    }
   },
 
   //getters
