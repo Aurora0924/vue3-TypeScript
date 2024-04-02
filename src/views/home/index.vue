@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import useUserStore from '@/store/modules/user'
-let userStore = useUserStore()
+import useUserStore from "@/store/modules/user";
+let userStore = useUserStore();
 </script>
 
 <style lang="scss" scoped></style>

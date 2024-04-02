@@ -7,31 +7,29 @@ import "nprogress/nprogress.css"; // progress bar style
 import useUserStore from "./store/modules/user";
 import { imageEmits } from "element-plus";
 const useStore = useUserStore(pinia);
-router.beforeEach(async(to, from, next) => {
-  document.title =  `${setting.title} - ${to.meta.title}`
+router.beforeEach(async (to, from, next) => {
+  document.title = `${setting.title} - ${to.meta.title}`;
   NProgress.start();
   let token = useStore.token;
   const username = useStore.username;
-  if(token) {
-    if(to.path == "/login") {
-      next({path: "/"});
-    }else {
-      if(username) {
+  if (token) {
+    if (to.path == "/login") {
+      next({ path: "/" });
+    } else {
+      if (username) {
         next();
       } else {
         try {
-          await useStore.userInfo
+          await useStore.userInfo;
           next();
-        } catch (error) {
-          
-        }
+        } catch (error) {}
       }
     }
-  }else {
-    if(to.path == "/login") {
-      next()
-    }else {
-      next({path: "/login",query: {redirect: to.path}});
+  } else {
+    if (to.path == "/login") {
+      next();
+    } else {
+      next({ path: "/login", query: { redirect: to.path } });
     }
   }
 });
@@ -40,4 +38,4 @@ router.afterEach((to, from) => {
   // 处理页面切换时的逻辑
 
   NProgress.done();
-})
+});
