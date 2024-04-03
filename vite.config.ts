@@ -1,13 +1,13 @@
 // vite.config.ts
-import { defineConfig ,loadEnv} from "vite";
+import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 import { viteMockServe } from "vite-plugin-mock";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { server } from "typescript";
 // vite跨域
-export default defineConfig(({ command,mode }) => {
-  let env = loadEnv(mode,process.cwd());
+export default defineConfig(({ command, mode }) => {
+  let env = loadEnv(mode, process.cwd());
   return {
     plugins: [
       vue(),
@@ -33,14 +33,14 @@ export default defineConfig(({ command,mode }) => {
         },
       },
     },
-    server:{
-      proxy:{
+    server: {
+      proxy: {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_SERVICE_URL,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          rewrite: (path) => path.replace(/^\/api/, ""),
         },
-      }
-    }
+      },
+    },
   };
 });

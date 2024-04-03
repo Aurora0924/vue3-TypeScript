@@ -1,7 +1,7 @@
 <template>
   <el-card style="max-width: 480px">
     <el-button type="primary" icon="Plus">品牌管理</el-button>
-    <el-table border style="margin:10px 0px">
+    <el-table border style="margin: 10px 0px">
       <el-table-column label="序号"></el-table-column>
       <el-table-column label="品牌名称"></el-table-column>
       <el-table-column label="品牌logo"></el-table-column>

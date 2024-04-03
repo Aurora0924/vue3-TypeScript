@@ -1,6 +1,10 @@
 import { defineStore } from "pinia";
-import { reqLogin, reqUserInfo ,reqLogout} from "@/api/user";
-import type { loginFormData, loginResponseData,userInfoReponseData } from "@/api/user/type";
+import { reqLogin, reqUserInfo, reqLogout } from "@/api/user";
+import type {
+  loginFormData,
+  loginResponseData,
+  userInfoReponseData,
+} from "@/api/user/type";
 import type { UserState } from "./types/type";
 import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from "@/utils/token";
 import { constantRoute } from "@/router/routers";
@@ -30,7 +34,6 @@ const useUserStore = defineStore("User", {
     async userInfo() {
       let request = await reqUserInfo();
       if (request.code == 200) {
-        
         this.username = request.data.name;
         this.avatar = request.data.avatar;
         return "ok";
@@ -41,16 +44,15 @@ const useUserStore = defineStore("User", {
     //没有接口不需要用异步
     async logout() {
       let request = await reqLogout();
-      if(request.code == 200) {
+      if (request.code == 200) {
         this.token = "";
         this.username = "";
         this.avatar = "";
         REMOVE_TOKEN();
         return "ok";
-      }else {
+      } else {
         return Promise.reject(new Error(request.data.message));
       }
-     
     },
   },
   //getters

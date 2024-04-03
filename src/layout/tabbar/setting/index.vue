@@ -53,7 +53,7 @@ const fullScreen = () => {
     document.exitFullscreen();
   }
 };
-const logout = async() => {
+const logout = async () => {
   await userStore.logout();
   router.push({ path: "/login", query: { redirect: route.path } });
 };
