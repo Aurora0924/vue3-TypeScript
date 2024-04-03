@@ -12,6 +12,7 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start();
   let token = useStore.token;
   const username = useStore.username;
+  
   if (token) {
     if (to.path == "/login") {
       next({ path: "/" });
@@ -22,14 +23,18 @@ router.beforeEach(async (to, from, next) => {
         try {
           await useStore.userInfo;
           next();
-        } catch (error) {}
+        } catch (error) {
+          // token过期
+          await useStore.logout();
+          next({ path: '/login', query: { redirect: to.path } })
+        }
       }
     }
   } else {
     if (to.path == "/login") {
       next();
     } else {
-      next({ path: "/login", query: { redirect: to.path } });
+       next({ path: "/login", query: { redirect: to.path } });
     }
   }
 });
