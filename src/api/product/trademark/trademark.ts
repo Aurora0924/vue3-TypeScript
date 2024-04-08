@@ -5,4 +5,6 @@ enum API {
 }
 
 export const reqHasTrademark = (page: number, limit: number) =>
-  request.get<any,TrademarkResponseData>(API.TRAEDMARK_URL + `${page}/${limit}`);
+  request.get<any, TrademarkResponseData>(
+    API.TRAEDMARK_URL + `${page}/${limit}`,
+  );
