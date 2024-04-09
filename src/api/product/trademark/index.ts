@@ -2,11 +2,11 @@ import request from "@/utils/request";
 import type {
   TrademarkResponseData,
   responseTrademark,
-} from "@/api/product/model/trademarkModel";
+} from "@/api/product/trademark/type";
 enum API {
-  TRADEMARK_URL = "/admin/product/baseTrademark/",
-  SAVE_TRADEMARK_URL = "/admin/product/baseTrademark/save",
-  UPDATE_TRADEMARK_URL = "/admin/product/baseTrademark/update",
+  TRADEMARK_URL = '/admin/product/baseTrademark/',
+  SAVE_TRADEMARK_URL = '/admin/product/baseTrademark/save',
+  UPDATE_TRADEMARK_URL = '/admin/product/baseTrademark/update',
 }
 
 export const reqHasTrademark = (page: number, limit: number) =>
@@ -15,7 +15,7 @@ export const reqHasTrademark = (page: number, limit: number) =>
   );
 
 //添加与修改已有品牌接口方法
-export const reqAddOrUpdateTrademark = (data: responseTrademark) => {
+export const reqAddOrUpdateTrademark = (data: responseTrademark) => { 
   //修改已有品牌的数据
   if (data.id) {
     return request.put<any, any>(API.UPDATE_TRADEMARK_URL, data);
