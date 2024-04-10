@@ -27,5 +27,5 @@ export const reqAddOrUpdateTrademark = (data: responseTrademark) => {
 };
 
 // 调用删除品牌接口
-export const reqDeleteTrademark = (id: number) => 
+export const reqDeleteTrademark = (id: number) =>
   request.delete<any, any>(API.DELETE_TRADEMARK_URL + id);
