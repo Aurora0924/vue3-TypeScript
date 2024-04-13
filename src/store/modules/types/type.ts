@@ -8,11 +8,10 @@ export interface UserState {
 }
 // category返回数据类型
 export interface CategoryState {
-  CategoryList:CategoryObject[],
-  CategoryList2:CategoryObject[],
-  CategoryList3:CategoryObject[],
-  category1Id:number|string,
-  category2Id:number|string,
-  category3Id:number|string,
+  CategoryList: CategoryObject[];
+  CategoryList2: CategoryObject[];
+  CategoryList3: CategoryObject[];
+  category1Id: number | string;
+  category2Id: number | string;
+  category3Id: number | string;
 }
-  
